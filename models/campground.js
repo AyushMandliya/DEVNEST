@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Review = require("./review"); // Corrected import statement
+const Review = require("./review");
 const Schema = mongoose.Schema;
 
 const CampgroundSchema = new Schema({
@@ -11,7 +11,7 @@ const CampgroundSchema = new Schema({
   reviews: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Review", // Referencing the Review model
+      ref: "Review",
     },
   ],
 });
