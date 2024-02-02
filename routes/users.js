@@ -49,10 +49,12 @@ router.post(
   }
 );
 
-router.get("/logout", (req, res, next) => {
-  req.logout(function (err) {
+router.get("/logout", (req, res) => {
+  req.logout((err) => {
     if (err) {
-      return next(err);
+      console.error("Error logging out:", err);
+      req.flash("error", "Something went wrong while logging out.");
+      return res.redirect("/campgrounds");
     }
     req.flash("success", "Goodbye!");
     res.redirect("/campgrounds");
