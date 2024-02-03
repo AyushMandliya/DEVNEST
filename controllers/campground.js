@@ -54,7 +54,6 @@ module.exports.updateCampground = async (req, res) => {
 
   // Assuming campground is obtained from database
   let campground = await Campground.findById(id);
-
   if (!campground) {
     req.flash("error", "Campground not found!");
     return res.redirect("/campgrounds");
